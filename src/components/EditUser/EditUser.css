@@ -1,0 +1,17 @@
+.edit-user-container{
+    display: flex;
+}
+
+.edit-button-container{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .button{
+    width: 30%;
+    margin: 0 20px;
+}

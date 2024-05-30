@@ -1,0 +1,22 @@
+.list-users-container{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.list-users-container h1{
+    text-align: center;
+    margin: 20px 0 20px 0;
+    font-size: 2.5rem;
+}
+
+.list-users{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}

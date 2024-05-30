@@ -1,0 +1,14 @@
+@media (max-width: 480px) and (orientation: portrait){
+
+    .footer-container{
+        width: 100vw;
+        height: 100px;
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(69,2,48,1) 90%);
+        transform: skew(0, -5deg);
+        margin-bottom: -50px;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 0;
+    }
+
+}
