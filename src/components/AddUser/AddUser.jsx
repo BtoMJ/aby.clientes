@@ -22,7 +22,6 @@ function AddUser() {
   }
 
   function addUserForm() {
-    console.log(gender)
     var user = {
       name: name,
       age: age,
@@ -30,12 +29,13 @@ function AddUser() {
       phone: phone,
       gender: gender,
     };
+    console.log("Datos",user)
 
     if (user) {
       axios
-        .post("https://api-clientes-production-140a.up.railway.app/api/users/adduser", user)
+        .post('https://api-clientes-production-140a.up.railway.app/api/users/adduser', { data: 'user'})
         .then((res) => {
-          alert("User Added Successfully");
+          alert("Cliente agregado correctamente");
           clearFields();
         })
         .then((err) => console.error(err));
@@ -46,129 +46,100 @@ function AddUser() {
     <div className="add-user-container">
       <h2>Agregar Cliente</h2>
 
-      <div className="add-field">
-        <label htmlFor="name" className="form-label">
-          Nombre
-        </label>
-        <input type="text" id="name" className="form-control" value={name} required
-          onChange={(e) => {
-            setName(e.target.value);
-          }}>
-        </input>
-      </div>
+      <form onSubmit={addUserForm}>
 
-      <div className="add-field">
-        <label htmlFor="age" className="form-label">
-          Edad
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          value={age}
-          onChange={(e) => {
-            setAge(e.target.value);
-          }}
-        ></input>
-      </div>
+        <div className="add-field">
+          <label htmlFor="name" className="form-label">
+            Nombre
+          </label>
+          <input type="text" id="name" className="form-control" value={name} required
+            onChange={(e) => {
+              setName(e.target.value);
+            }}>
+          </input>
+        </div>
 
-      <div className="add-field">
-        <label htmlFor="email" className="form-label">
-          Email
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        ></input>
-      </div>
+        <div className="add-field">
+          <label htmlFor="age" className="form-label">
+            Edad
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            value={age}
+            onChange={(e) => {
+              setAge(e.target.value);
+            }}
+          ></input>
+        </div>
 
-      <div className="add-field">
-        <label htmlFor="tel" className="form-label">
-          Teléfono
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          value={phone}
-          onChange={(e) => {
-            setPhone(e.target.value);
-          }}
-        ></input>
-      </div>
+        <div className="add-field">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          ></input>
+        </div>
 
-      <div className="add-field-radio">
-        <label htmlFor="tel" className="form-label-radio">
-         Mujer
-        </label>
+        <div className="add-field">
+          <label htmlFor="tel" className="form-label">
+            Teléfono
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            value={phone}
+            onChange={(e) => {
+              setPhone(e.target.value);
+            }}
+          ></input>
+        </div>
+
+        <div className="add-field-radio">
+          <label htmlFor="tel" className="form-label-radio">
+          Mujer
+          </label>
+          
+          <input
+            type="radio"
+            className="form-control-radio"
+            value="Mujer"
+            name="gender"
+            onChange={(e) => {
+              setGender(e.target.value);
+            }}
+          ></input>
         
-        <input
-          type="radio"
-          className="form-control-radio"
-          value="Mujer"
-          name="gender"
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-        ></input>
-      
-        <label htmlFor="tel" className="form-label-radio">
-          Hombre
-        </label>
-        <input
-          type="radio"
-          className="form-control-radio"
-          value="Hombre"
-          name="gender"
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-        ></input>
-      </div>
+          <label htmlFor="tel" className="form-label-radio">
+            Hombre
+          </label>
+          <input
+            type="radio"
+            className="form-control-radio"
+            value="Hombre"
+            name="gender"
+            onChange={(e) => {
+              setGender(e.target.value);
+            }}
+          ></input>
+        </div>
 
-      <button onClick={ addUserForm } className='btn-save'>
-        <MdSave className="icon-save"/>
-        Guardar
-      </button>
+        <button type="submit" className='btn-save'>
+          <MdSave className="icon-save"/>
+          Guardar
+        </button>
+
+      </form>
+
 
     </div>
-    // <div className='container'>
-
-    //   <div className='row'>
-    //       <h2 className='mt-4'>Add User</h2>
-    //   </div>
-
-    //   <div className='row'>
-    //     <div className='col-sm-6 offset-3'>
-
-    //       <div className='mb-3'>
-    //         <label htmlFor='name' className='form-label'>Name</label>
-    //         <input type='text' className='form-control' value={ name } onChange={ (e) => { setName( e.target.value ) } } id='name'></input>
-    //       </div>
-
-    //       <div className='mb-3'>
-    //         <label htmlFor='age' className='form-label'>Age</label>
-    //         <input type='text' className='form-control' value={ age } onChange={ (e) => { setAge( e.target.value ) } }></input>
-    //       </div>
-
-    //       <div className='mb-3'>
-    //         <label htmlFor='email' className='form-label'>Email</label>
-    //         <input type='email' className='form-control' value={ email } onChange={ (e) => { setEmail( e.target.value ) } }></input>
-    //       </div>
-
-    //       <div className='mb-3'>
-    //         <label htmlFor='tel' className='form-label'>Phone</label>
-    //         <input type='text' className='form-control' value={ phone } onChange={ (e) => { setPhone( e.target.value ) } }></input>
-    //       </div>
-
-    //       <button onClick={ addUserForm } className='btn btn-success'>Save User</button>
-
-    //     </div>
-    //   </div>
-
-    // </div>
+    
   );
 }
 
