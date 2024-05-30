@@ -33,7 +33,7 @@ function AddUser() {
 
     if (user) {
       axios
-        .post("api-clientes-production-140a.up.railway.app/api/users/adduser", user)
+        .post("https://api-clientes-production-140a.up.railway.app/api/users/adduser", user)
         .then((res) => {
           alert("User Added Successfully");
           clearFields();
