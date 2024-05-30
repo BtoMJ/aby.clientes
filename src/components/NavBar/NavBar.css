@@ -11,6 +11,7 @@
         margin-top: -60px;
         background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(69,2,48,1) 60%);
         transform: skew(0, -5deg);
+        position: absolute;
     }
 
     .logo-container{
