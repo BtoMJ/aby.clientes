@@ -39,7 +39,8 @@ function AddUser() {
           clearFields();
         })
         .then((err) => console.error(err));
-    }
+      }
+      event.preventDefault();
   }
 
   return (
