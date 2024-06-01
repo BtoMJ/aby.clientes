@@ -22,6 +22,7 @@ function AddUser() {
   }
 
   function addUserForm() {
+    event.preventDefault();
     var user = {
       name: name,
       age: age,
@@ -33,14 +34,14 @@ function AddUser() {
 
     if (user) {
       axios
-        .post('https://web-production-7f2d.up.railway.app/https://api-clientes-production-140a.up.railway.app/api/users/adduser', { data: 'user'})
+        .post('https://api-clientes-production-140a.up.railway.app/api/users/adduser', { data: 'user'})
+        // .post('https://web-production-7f2d.up.railway.app/https://api-clientes-production-140a.up.railway.app/api/users/adduser', { data: 'user'})
         .then((res) => {
           alert("Cliente agregado correctamente");
           clearFields();
         })
         .then((err) => console.error(err));
       }
-      event.preventDefault();
   }
 
   return (
