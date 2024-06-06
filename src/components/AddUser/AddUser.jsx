@@ -23,7 +23,6 @@ function AddUser() {
 
   async function addUserForm() {
     event.preventDefault();
-    console.log("Gender",gender);
     var user = {
       name: name,
       age: age,
@@ -34,17 +33,30 @@ function AddUser() {
     console.log("Datos",user)
 
     if (user) {
-      await axios
-        // .post('https://api-clientes-eosin.vercel.app/api/users/adduser', { data: 'user'})
-        // .post('https://aby-clientes-api.netlify.app/api/users/adduser', { data: 'user'})
-        .post('https://api-clientes-production-140a.up.railway.app/api/users/adduser', { data: 'user'})
-        // .post('https://web-production-7f2d.up.railway.app/https://api-clientes-production-140a.up.railway.app/api/users/adduser', { data: 'user'})
-        .then((res) => {
-          alert("Cliente agregado correctamente");
-          clearFields();
-        })
-        .then((err) => console.error(err));
-      }
+      await fetch("https://api-clientes-production-140a.up.railway.app/api/users/adduser",{
+         method: 'POST',
+         cache: 'no-cache',
+         mode: 'cors',
+         credentials: 'same-origin',
+         referrerPolicy: 'origin-when-cross-origin',
+         headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify(user)
+      });
+      console.log(response);
+      clearFields();
+      // .then((response) => response.json());
+      // await axios
+      //   .post('https://api-clientes-production-140a.up.railway.app/api/users/adduser', { data: 'user'})
+      //   .then((res) => {
+      //     alert("Cliente agregado correctamente");
+      //     clearFields();
+      //   })
+      //   .then((err) => console.error(err));
+     }
   }
 
   return (
